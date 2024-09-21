@@ -1,0 +1,11 @@
+{% autoescape off %}
+Hi, {{ user.first_name }}
+
+{% if is_approved %}
+    Congratulations! Your restaurant has been approved.
+{% else %}
+We're sorry you are not eligible for publishing your foods.contact admin@mail.com 
+    
+{% endif %}
+
+{% endautoescape %}%}
