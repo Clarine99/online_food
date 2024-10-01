@@ -32,9 +32,7 @@ def registerUser(request):
     
     elif request.method == 'POST':
         form = UserForm(request.POST)
-        
-        
-        
+       
         if form.is_valid():
             # password = form.cleaned_data['password']
             # user = form.save(commit=False)
