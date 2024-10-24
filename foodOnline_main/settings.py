@@ -68,6 +68,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "accounts.context_processors.get_vendor",
+                "accounts.context_processors.get_google_api",
             ],
         },
     },
@@ -131,6 +132,7 @@ STATIC_ROOT = BASE_DIR / "static"
 STATIC_URL = "static/"
 STATICFILES_DIRS = ["foodOnline_main/static"]
 
+
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "media/"
 
@@ -150,3 +152,6 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 DEFAULT_FROM_EMAIL = 'FOODONLINE MARKETPLACE <andri.ksm.787@gmail.com>'
+
+GOOGLE_API_KEY = 'AIzaSyBV31p1zxWUaGmT71mthLnrdRUxGQHO5uw'   
+
