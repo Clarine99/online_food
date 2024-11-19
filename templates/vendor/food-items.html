@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content%}
+<!--Main Wrapper-->
+ <!-- Main Section Start -->
+ <div class="main-section">
+    {% include 'includes/cover.html'%}
+    <div class="page-section account-header buyer-logged-in">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                   {% include 'includes/v_sidebar.html'%}
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <div class="user-dashboard loader-holder">
+                        <div class="user-holder">
+                            
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <h5 class="text-uppercase">Build Your Food Menu</h5>
+                                <hr>
+                                <!-- My Restaurants Form Start -->
+                                <h6>Category: <span class:"fw-bold" style="color:red;">{{category}}</span></h6>
+                                <button class="btn btn-success float-right mx-2  " type="button"><i class="fa fa-plus"></i>Add Food</button>
+                                <a href="{% url 'add_category' %}"class="btn btn-info float-right  mb-3" type="button">Add Category</a>
+                                {% if not fooditems %}
+                            </div>
+                            <div>
+                                <h3 class="text-center">no food</h3>
+                                <div class="text-center">
+                                        <a href="#" class="btn btn-success" ><i class="fa fa-plus" aria-hidden="true"> </i>&nbsp Add  </a>
+                                    </div>
+                                {% else %} 
+                                <table class="table table-hover table-striped table-borderless ">
+                                    
+                                    <tbody>
+                                        
+                                        
+                                        {% for food in fooditems %}
+                                        <tr>
+                                            
+                                            
+                                            <td class="text-left">{{forloop.counter}}</td>
+                                            
+                                            <td class="text-left"><img src="{{ food.image.url}}" class="d-flex " width="40px"></td>
+                                                
+                                               <td class="text-left"> <h5 class="text-muted">{{food}}&nbsp {{food.vendor}}</h5></td>
+                                                <td class="text-left"><a href="#"><i class="fa-solid fa-pen-to-square" aria-hidden="True"></i> </a><span>|</span><a href="{% url 'menu_builder' %}"> <i class="fa-solid fa-trash-can"></i></a></td>
+                                                
+                                            </tr>
+                                        {% endfor %}
+                                            
+                                            
+                                        </tbody>
+                                        
+                                    </table>
+                                    <!-- My Restaurants Form End -->
+                                    {% endif %}
+                                    
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- Main Section End -->
+
+{% include 'includes/alerts.html' %}
+{% endblock %}

@@ -2,5 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def home (request):
-    
-    return render(request, 'home.html')
+    if request.user:
+        user = request.user
+        context ={
+            'user':user}
+        return render(request, 'home.html', context)
+    else:
+        return render(request, 'home.html')
