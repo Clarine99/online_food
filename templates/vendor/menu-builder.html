@@ -22,11 +22,9 @@
                                 <hr>
                                 <!-- My Restaurants Form Start -->
                                 <h6>Menu Categories</h6>
-                                <button class="btn btn-success float-right mx-2  " type="button"><i
-                                        class="fa fa-plus"></i>Add Food</button>
-                                <a href="{% url 'add_category' %}" class="btn btn-info float-right  mb-3"
-                                    type="button">Add Category</a>
-
+                               
+                                
+                                    {% if categories %}
                                 <table class="table table-hover table-striped table-borderless ">
 
                                     <tbody>
@@ -51,10 +49,16 @@
                                         </tr>
                                         {% endfor %}
 
-
+                                        
                                     </tbody>
-
+                                    
                                 </table>
+                                {% else %}
+                               <h3 class="text-center">No Category</h3>
+                               <div class="text-center"><a href="{% url 'add_category' %}" class="btn btn-info float-right  mb-3 justify-content-center"
+                               type="button">Add Category</a></div>
+                                {% endif %}
+
                                 <!-- My Restaurants Form End -->
 
                             </div>

@@ -17,6 +17,12 @@ class UserForm(forms.ModelForm):
             raise forms.ValidationError(
                 "password and confirm_password does not match"
             )
+        email = cleaned_data.get('email').lower()
+        print('email form cleaned data: ',email)
+        print('User.objects.filter(email=email).exists():', User.objects.filter(email=email).exists())
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("User with this email already exists")
+        return cleaned_data
 
 class UserProfileForm(forms.ModelForm):
     address = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'start typing...', 'required': 'required'}))
